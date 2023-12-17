@@ -117,4 +117,3 @@ console.log("Server is up.");
 
 //deleteOne needs callback function to delete the document
 //res.sendFile(__dirname +"/index.html");
-//For heroku to work, it should be in node_modules folder in your current project
