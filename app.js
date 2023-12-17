@@ -8,7 +8,7 @@ app.set("view engine","ejs");
 app.use(parser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://akankshawattamwar4:Abw%402408%2EmongoDB@cluster0.8sbkcl2.mongodb.net/todolistDB?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://<UserName>:<Password>@cluster0.8sbkcl2.mongodb.net/todolistDB?retryWrites=true&w=majority");
 
 const itemsSchema ={
     name: String
@@ -91,7 +91,7 @@ app.post("/delete",function(req,res){
 
     if(listName==="Today"){
         Item.deleteOne({_id:id}).then(function(){
-            console.log("Blog deleted"); // Success
+            console.log("One item deleted"); // Success
          }).catch(function(error){
             console.log(error); // Failure
          });
@@ -99,7 +99,7 @@ app.post("/delete",function(req,res){
         res.redirect("/");
     }else{
         List.findOneAndUpdate({name: listName},{$pull:{items: {_id:id}}}).then(function(){
-            console.log("Blog deleted"); // Success
+            console.log("One item deleted"); // Success
          }).catch(function(error){
             console.log(error); // Failure
          });
